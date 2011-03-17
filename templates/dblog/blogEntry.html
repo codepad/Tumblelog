@@ -1,0 +1,12 @@
+{% extends 'dblog/masterTemplate.html' %}
+{% block title %} <h1> Post new blog entry </h1> {% endblock %}
+{% block content %}
+	<form action="/blog/postEntry/" method='post'>
+	{% csrf_token %}
+	Title: <input type="text" name="title"> <br/>
+	Author’s email address:	<input type="text" name="reply_to"> <br/>
+	<textarea rows="10" cols="80" name="content"></textarea>
+	<p/>
+	<input type="submit" value="Post" />
+	</form>
+{% endblock %}

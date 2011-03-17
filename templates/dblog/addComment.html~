@@ -1,0 +1,23 @@
+{% extends 'dblog/masterTemplate.html' %}
+{% block title %} Add Comment to Blog "{{ blog.title }}" {% endblock %}
+{% block content %}
+	<form action="/blog/{{ blog.id }}/postComment/"  method="post">
+ 	{% csrf_token %}
+	 	<textarea rows="10" cols="60" name="content"></textarea>
+	 	<p/>
+	 	How do you rate this entry:
+	 	<select name="rating">
+	 
+		 {% for r in blog.RATING_CHOICES %}
+			 <!-- Use the template system to treat ‘.’
+			as ‘[]’ r[0] is the rating number, r[1]
+			 is the rating text -->
+			 <option value="{{r.0}}">{{r.1}}</option>
+	 	{% endfor %}
+		 </select>
+
+	 	<input type="submit" value="Post"/>
+	 	<p/>
+ 	</form>
+{% endblock %}
+ 

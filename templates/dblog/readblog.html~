@@ -1,0 +1,19 @@
+{% extends 'dblog/masterTemplate.html' %}
+{% block title %} 
+	<h1> {{ blog.title }} </h1>
+	<p>Published on {{blog.post_date|date:"F j, Y"}}</p>
+	<p>Posted by {{blog.reply_to}}</p>
+ 	<p>Current rating is {{blog.rating}} out of 5</p> 
+{% endblock %}
+{% block content %}
+	<div class="blogtext">
+	{{blog.content}}
+	</div>
+{% endblock %}
+{% block footer %}
+	<div class="footerlink">
+	View <a href="comment">{{blog.comment_set.count}}
+	comment{{blog.comment_set.count|pluralize}}</a><br/>
+	Return to <a href="/blog">Top</a><br/>
+	</div>
+{% endblock %}

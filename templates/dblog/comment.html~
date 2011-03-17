@@ -1,0 +1,26 @@
+{% extends 'dblog/masterTemplate.html' %}
+{% block title %} Comments on Blog "{{ blog.title }}" {% endblock %}
+{% block content %}
+	<div class="commentlist">
+	{% if comments %}
+	<ul>
+	{% for comment in comments %}
+	<li>
+	[{{comment.ratingText}}] --
+	{{ comment.content }}
+
+	</li>
+	{% endfor %}
+	</ul>
+	{% else %}
+	<p>No comments on this entry.</p>
+	{% endif %}
+	</div>
+{% endblock %}
+{% block footer %}
+	<div class="footerlink">
+	Add a <a href="add">comment</a> <br/>
+	Return to <a href="..">{{blog.title}} </a> <br/>
+	Return to <a href="/blog">Top</a> <br/>
+	</div>
+{% endblock %}
