@@ -56,7 +56,6 @@ def postComment(request, blog_id):
 		  return HttpResponse('Please Add Some Comment')
 
 def writeBlog(request):
-	print "IN WRITE BLOG"
 	return render_to_response('dblog/blogEntry.html',context_instance=RequestContext(request))
 
 def postEntry(request):
